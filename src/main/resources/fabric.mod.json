@@ -1,11 +1,8 @@
 {
-  "id": "modid",
-  "name": "Example Mod",
+  "id": "craftingpad",
+  "name": "Crafting Pad",
+  "description": "Add an crafting table as a item",
   "version": "1.0.0",
   "side": "universal",
-  "initializer": "net.fabricmc.example.ExampleMod",
-  "mixins": {
-    "client": "modid.client.json",
-    "common": "modid.common.json"
-  }
+  "initializer": "io.github.strikerrocker.craftingstick.CraftingStick"
 }
