@@ -1,0 +1,18 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "# ",
+    "Q "
+  ],
+  "key": {
+    "Q": {
+      "item": "minecraft:stick"
+    },
+    "#": {
+      "item": "minecraft:crafting_table"
+    }
+  },
+  "result": {
+    "item": "craftingpad:craftingpad"
+  }
+}

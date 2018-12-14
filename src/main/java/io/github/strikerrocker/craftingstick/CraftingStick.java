@@ -15,6 +15,4 @@ public class CraftingStick implements ModInitializer {
     public void onInitialize() {
         registerItem(new ItemCraftingStick(new Item.Settings().itemGroup(ItemGroup.MISC)), "craftingpad");
     }
-
-
 }
