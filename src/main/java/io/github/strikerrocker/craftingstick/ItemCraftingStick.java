@@ -1,7 +1,12 @@
 package io.github.strikerrocker.craftingstick;
 
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.class_3914;
+import net.minecraft.client.network.ClientDummyContainerProvider;
 import net.minecraft.container.Container;
+import net.minecraft.container.CraftingTableContainer;
+import net.minecraft.container.NameableContainerProvider;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.Item;
@@ -16,37 +21,21 @@ import net.minecraft.world.World;
 
 public class ItemCraftingStick extends Item {
 
+    private static final TextComponent field_17362 = new TranslatableTextComponent("container.crafting", new Object[0]);
+
     public ItemCraftingStick(Settings settings) {
         super(settings);
     }
 
     @Override
     public TypedActionResult<ItemStack> use(World var1, PlayerEntity var2, Hand var3) {
-        if (!var1.isRemote) {
-            var2.openContainer(new ContainerProvider(var1, var2.getPos()));
+        if (!var1.isClient()) {
+            var2.openContainer(method_17454(var1,var2.getPos()));
         }
         return new TypedActionResult<>(ActionResult.PASS, var2.getStackInHand(var3));
     }
 
-    public static class ContainerProvider implements net.minecraft.container.ContainerProvider {
-        private final World world;
-        private final BlockPos pos;
-
-        public ContainerProvider(World var1, BlockPos var2) {
-            this.world = var1;
-            this.pos = var2;
-        }
-
-        public TextComponent getName() {
-            return new TranslatableTextComponent(Blocks.CRAFTING_TABLE.getTranslationKey() + ".name", new Object[0]);
-        }
-
-        public Container createContainer(PlayerInventory var1, PlayerEntity var2) {
-            return new CustomCraftingTableContainer(var1, this.world, this.pos);
-        }
-
-        public String getContainerId() {
-            return "minecraft:crafting_table";
-        }
+    public NameableContainerProvider method_17454(World world_1, BlockPos blockPos_1) {
+        return new ClientDummyContainerProvider((int_1, playerInventory_1, playerEntity_1) -> new CustomCraftingTableContainer(int_1, playerInventory_1, class_3914.method_17392(world_1, blockPos_1)), field_17362);
     }
 }

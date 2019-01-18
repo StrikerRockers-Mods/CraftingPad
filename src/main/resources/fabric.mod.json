@@ -2,7 +2,7 @@
   "id": "craftingpad",
   "name": "Crafting Pad",
   "description": "Add an crafting table as a item",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "side": "universal",
   "initializer": "io.github.strikerrocker.craftingstick.CraftingStick"
 }
