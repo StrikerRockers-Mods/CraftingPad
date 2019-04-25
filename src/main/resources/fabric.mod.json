@@ -10,8 +10,7 @@
   "contact": {
     "sources": "https://github.com/StrikerRockers-Mods/CraftingStick"
   },
-  "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "icon": "assets/craftingpad/textures/items/craftingpad.png",
   "environment": "*",
   "entrypoints": {
     "main": [
