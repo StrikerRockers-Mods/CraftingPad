@@ -1,14 +1,9 @@
 package io.github.strikerrocker.craftingstick;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.class_3914;
 import net.minecraft.client.network.ClientDummyContainerProvider;
-import net.minecraft.container.Container;
-import net.minecraft.container.CraftingTableContainer;
+import net.minecraft.container.BlockContext;
 import net.minecraft.container.NameableContainerProvider;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.TextComponent;
@@ -30,12 +25,12 @@ public class ItemCraftingStick extends Item {
     @Override
     public TypedActionResult<ItemStack> use(World var1, PlayerEntity var2, Hand var3) {
         if (!var1.isClient()) {
-            var2.openContainer(method_17454(var1,var2.getPos()));
+            var2.openContainer(method_17454(var1, var2.getBlockPos()));
         }
         return new TypedActionResult<>(ActionResult.PASS, var2.getStackInHand(var3));
     }
 
     public NameableContainerProvider method_17454(World world_1, BlockPos blockPos_1) {
-        return new ClientDummyContainerProvider((int_1, playerInventory_1, playerEntity_1) -> new CustomCraftingTableContainer(int_1, playerInventory_1, class_3914.method_17392(world_1, blockPos_1)), field_17362);
+        return new ClientDummyContainerProvider((int_1, playerInventory_1, playerEntity_1) -> new CustomCraftingTableContainer(int_1, playerInventory_1, BlockContext.create(world_1, blockPos_1)), field_17362);
     }
 }

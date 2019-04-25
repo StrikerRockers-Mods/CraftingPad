@@ -1,8 +1,21 @@
 {
+  "schemaVersion": 1,
   "id": "craftingpad",
+  "version": "${version}",
   "name": "Crafting Pad",
   "description": "Add an crafting table as a item",
-  "version": "1.0.2",
-  "side": "universal",
-  "initializer": "io.github.strikerrocker.craftingstick.CraftingStick"
+  "authors": [
+    "StrikerRocker"
+  ],
+  "contact": {
+    "sources": "https://github.com/StrikerRockers-Mods/CraftingStick"
+  },
+  "license": "CC0-1.0",
+  "icon": "assets/modid/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "io.github.strikerrocker.craftingstick.CraftingStick"
+    ]
+  }
 }
