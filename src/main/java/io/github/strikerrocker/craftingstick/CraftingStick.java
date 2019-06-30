@@ -13,6 +13,6 @@ public class CraftingStick implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        registerItem(new ItemCraftingStick(new Item.Settings().itemGroup(ItemGroup.MISC)), "craftingpad");
+        registerItem(new ItemCraftingStick(new Item.Settings().group(ItemGroup.MISC)), "craftingpad");
     }
 }

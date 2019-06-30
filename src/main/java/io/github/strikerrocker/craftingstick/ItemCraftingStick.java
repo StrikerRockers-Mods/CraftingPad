@@ -6,8 +6,8 @@ import net.minecraft.container.NameableContainerProvider;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.text.TextComponent;
-import net.minecraft.text.TranslatableTextComponent;
+import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 
 public class ItemCraftingStick extends Item {
 
-    private static final TextComponent field_17362 = new TranslatableTextComponent("container.crafting", new Object[0]);
+    private static final Text field_17362 = new TranslatableText("container.crafting", new Object[0]);
 
     public ItemCraftingStick(Settings settings) {
         super(settings);
@@ -30,7 +30,7 @@ public class ItemCraftingStick extends Item {
         return new TypedActionResult<>(ActionResult.PASS, var2.getStackInHand(var3));
     }
 
-    public NameableContainerProvider method_17454(World world_1, BlockPos blockPos_1) {
+    private NameableContainerProvider method_17454(World world_1, BlockPos blockPos_1) {
         return new ClientDummyContainerProvider((int_1, playerInventory_1, playerEntity_1) -> new CustomCraftingTableContainer(int_1, playerInventory_1, BlockContext.create(world_1, blockPos_1)), field_17362);
     }
 }
