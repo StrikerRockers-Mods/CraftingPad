@@ -16,5 +16,10 @@
     "main": [
       "io.github.strikerrocker.craftingstick.CraftingStick"
     ]
+  },
+  "depends": {
+    "fabricloader": ">=0.7.2",
+    "fabric": "*",
+    "minecraft": "1.15.x"
   }
 }
