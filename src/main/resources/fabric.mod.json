@@ -5,7 +5,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "io.github.strikerrocker.craftingstick.CraftingStick"
+      "io.github.strikerrocker.craftingpad.CraftingPad"
     ]
   },
   "depends": {
