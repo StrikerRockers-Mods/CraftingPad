@@ -2,15 +2,6 @@
   "schemaVersion": 1,
   "id": "craftingpad",
   "version": "${version}",
-  "name": "Crafting Pad",
-  "description": "Add an crafting table as a item",
-  "authors": [
-    "StrikerRocker"
-  ],
-  "contact": {
-    "sources": "https://github.com/StrikerRockers-Mods/CraftingStick"
-  },
-  "icon": "assets/craftingpad/textures/items/craftingpad.png",
   "environment": "*",
   "entrypoints": {
     "main": [
@@ -20,6 +11,18 @@
   "depends": {
     "fabricloader": ">=0.7.2",
     "fabric": "*",
-    "minecraft": "1.15.x"
+    "minecraft": ">=1.16"
+  },
+    "recommends": {
+      "modmenu" : "*"
+    },
+  "name": "Crafting Pad",
+  "description": "Add an crafting table as a item",
+  "icon": "icon.png",
+  "authors": [ "StrikerRocker", "Giselbaer" ],
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/craftingpad-fabric",
+    "sources": "https://github.com/gbl/CraftingStick",
+    "issues": "https://github.com/gbl/CraftingStick/issues"
   }
 }
