@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '0.2.7-SNAPSHOT'
+    id 'fabric-loom' version '0.4-SNAPSHOT'
 }
 
 repositories {
@@ -9,16 +9,13 @@ repositories {
 	maven {
 		url = "https://minecraft.guntram.de/maven/"
 	}
-	maven {
-		url = "file:///tmp/mymavenrepo/"
-	}
 }
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 ext.Versions = new Properties()
-Versions.load(file("Versionfiles/mcversion-1.16.properties").newReader())
+Versions.load(file("Versionfiles/mcversion-1.16.2-pre1.properties").newReader())
 
 archivesBaseName = "craftingpad"
 ext.projectVersion = "1.0.5"
