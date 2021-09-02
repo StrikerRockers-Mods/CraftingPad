@@ -8,20 +8,13 @@
             "io.github.strikerrocker.craftingpad.CraftingPad"
         ]
     },
-    "custom": {
-        "modupdater": {
-            "strategy": "json",
-            "url": "https://raw.githubusercontent.com/gbl/ModVersionInfo/master/CraftingPad.json"
-        }
-    },  
     "depends": {
         "fabricloader": ">=0.7.2",
         "fabric": "*",
         "minecraft": ">=1.16"
     },
     "recommends": {
-        "modmenu" : "*",
-        "modupdater": ">=1.1.7"
+        "modmenu": "*"
     },
     "name": "Crafting Pad",
     "description": "Add an crafting table as a item",
@@ -29,7 +22,7 @@
     "authors": [ "StrikerRocker", "Giselbaer" ],
     "contact": {
         "homepage": "https://www.curseforge.com/minecraft/mc-mods/craftingpad-fabric",
-        "sources": "https://github.com/gbl/CraftingStick",
-        "issues": "https://github.com/gbl/CraftingStick/issues"
+        "sources": "https://github.com/StrikerRockers-Mods/CraftingPad",
+        "issues": "https://github.com/StrikerRockers-Mods/CraftingPad/issues"
     }
 }

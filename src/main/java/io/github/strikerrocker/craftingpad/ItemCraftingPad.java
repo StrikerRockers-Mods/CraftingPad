@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 
 public class ItemCraftingPad extends Item {
 
-    private static final Text field_17362 = new TranslatableText("container.crafting", new Object[0]);
+    private static final Text TITLE = new TranslatableText("container.crafting");
 
     public ItemCraftingPad(Settings settings) {
         super(settings);
@@ -25,18 +25,15 @@ public class ItemCraftingPad extends Item {
     @Override
     public TypedActionResult<ItemStack> use(World var1, PlayerEntity var2, Hand var3) {
         if (!var1.isClient()) {
-            var2.openHandledScreen(method_17454(var1, var2.getBlockPos()));
+            var2.openHandledScreen(createScreenHandlerFactory(var1, var2.getBlockPos()));
         }
         return new TypedActionResult<>(ActionResult.PASS, var2.getStackInHand(var3));
     }
 
-    private NamedScreenHandlerFactory method_17454(World world_1, BlockPos blockPos_1) {
+    private NamedScreenHandlerFactory createScreenHandlerFactory(World world, BlockPos pos) {
         return new SimpleNamedScreenHandlerFactory(
-                    (int_1, playerInventory_1, playerEntity_1) 
-                -> 
-                    new CustomCraftingTableContainer(int_1, playerInventory_1,
-                        ScreenHandlerContext.create(world_1, blockPos_1)),
-                field_17362
+                (id, playerInv, player) -> new CustomCraftingTableContainer(id, playerInv, ScreenHandlerContext.create(world, pos)),
+                TITLE
         );
     }
 }

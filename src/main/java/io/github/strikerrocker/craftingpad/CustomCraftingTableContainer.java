@@ -1,5 +1,4 @@
-package io.github.strikerrocker.craftingpad
-        ;
+package io.github.strikerrocker.craftingpad;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -8,12 +7,12 @@ import net.minecraft.screen.ScreenHandlerContext;
 
 public class CustomCraftingTableContainer extends CraftingScreenHandler {
 
-    public CustomCraftingTableContainer(int int1, PlayerInventory var1, ScreenHandlerContext blockContext) {
-        super(int1, var1, blockContext);
+    public CustomCraftingTableContainer(int id, PlayerInventory playerInventory, ScreenHandlerContext blockContext) {
+        super(id, playerInventory, blockContext);
     }
 
     @Override
-    public boolean canUse(PlayerEntity var1) {
+    public boolean canUse(PlayerEntity player) {
         return true;
     }
 }
