@@ -1,18 +1,18 @@
 package io.github.strikerrocker.craftingpad;
 
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.screen.CraftingScreenHandler;
-import net.minecraft.screen.ScreenHandlerContext;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.ContainerLevelAccess;
+import net.minecraft.world.inventory.CraftingMenu;
 
-public class CustomCraftingTableContainer extends CraftingScreenHandler {
+public class CustomCraftingTableContainer extends CraftingMenu {
 
-    public CustomCraftingTableContainer(int id, PlayerInventory playerInventory, ScreenHandlerContext blockContext) {
+    public CustomCraftingTableContainer(int id, Inventory playerInventory, ContainerLevelAccess blockContext) {
         super(id, playerInventory, blockContext);
     }
 
     @Override
-    public boolean canUse(PlayerEntity player) {
+    public boolean stillValid(Player player) {
         return true;
     }
 }
