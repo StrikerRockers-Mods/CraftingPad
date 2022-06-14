@@ -2,7 +2,7 @@ package io.github.strikerrocker.craftingpad;
 
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ContainerLevelAccess;
@@ -12,7 +12,7 @@ import net.minecraft.world.level.Level;
 
 public class ItemCraftingPad extends Item {
 
-    private static final TranslatableComponent TITLE = new TranslatableComponent("container.crafting");
+    private static final Component TITLE = Component.translatable("container.crafting");
 
     public ItemCraftingPad(Properties properties) {
         super(properties);
