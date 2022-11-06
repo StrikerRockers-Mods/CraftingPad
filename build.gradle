@@ -9,7 +9,7 @@ repositories {
 
 sourceCompatibility = targetCompatibility = JavaVersion.VERSION_17
 
-archivesBaseName = project.modid + "-" + project.minecraft_version
+archivesBaseName = project.mod_name + "-" + project.minecraft_version
 version = project.mod_version
 
 dependencies {
@@ -49,21 +49,10 @@ task setupGithubActions() {
             commandLine "echo", "##[set-output name=version;]${project.mod_version}"
         }
         exec {
-            commandLine "echo", "##[set-output name=modid;]${project.modid}"
+            commandLine "echo", "##[set-output name=mod_name;]${project.mod_name}"
         }
         exec {
             commandLine "echo", "##[set-output name=minecraft_version;]${project.minecraft_version}"
-        }
-        exec {
-            commandLine "echo", "##[set-output name=curse_project_id;]${project.curse_project_id}"
-        }
-        exec {
-            commandLine "echo", "##[set-output name=curse_versions;]${project.curse_versions}"
-        }
-        if (rootProject.hasProperty('curse_relations')) {
-            exec {
-                commandLine "echo", "##[set-output name=curse_relations;]${project.curse_relations}"
-            }
         }
     }
 }
