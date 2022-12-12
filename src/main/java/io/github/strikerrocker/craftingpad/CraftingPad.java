@@ -1,9 +1,11 @@
 package io.github.strikerrocker.craftingpad;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 
 public class CraftingPad implements ModInitializer {
@@ -12,6 +14,7 @@ public class CraftingPad implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        Registry.register(Registry.ITEM, new ResourceLocation(MODID, MODID), new ItemCraftingPad(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
+        Item PAD = Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(MODID, MODID), new ItemCraftingPad(new Item.Properties().stacksTo(1)));
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register(entries -> entries.accept(PAD));
     }
 }

@@ -19,16 +19,16 @@ public class ItemCraftingPad extends Item {
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand interactionHand) {
+    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         if (!level.isClientSide()) {
             player.openMenu(createScreenHandlerFactory(level, player.getOnPos()));
         }
-        return new InteractionResultHolder<>(InteractionResult.PASS, player.getItemInHand(interactionHand));
+        return new InteractionResultHolder<>(InteractionResult.PASS, player.getItemInHand(hand));
     }
 
-    private MenuProvider createScreenHandlerFactory(Level worllevel, BlockPos pos) {
+    private MenuProvider createScreenHandlerFactory(Level level, BlockPos pos) {
         return new SimpleMenuProvider(
-                (id, playerInv, player) -> new CustomCraftingTableContainer(id, playerInv, ContainerLevelAccess.create(worllevel, pos)),
+                (id, playerInv, player) -> new CustomCraftingTableContainer(id, playerInv, ContainerLevelAccess.create(level, pos)),
                 TITLE
         );
     }
