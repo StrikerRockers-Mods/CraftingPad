@@ -1,22 +1,27 @@
 plugins {
-    id 'fabric-loom' version '0.12.+'
+    id 'fabric-loom' version '1.2-SNAPSHOT'
+    id 'maven-publish'
 }
 
+base {
+    archivesName = project.mod_name + "-fabric-" + project.minecraft_version
+}
+version = project.mod_version
+
 repositories {
-    maven { url "https://maven.fabricmc.net/" }
     maven { url "https://maven.terraformersmc.com/releases/" }
 }
 
-sourceCompatibility = targetCompatibility = JavaVersion.VERSION_17
+loom {
 
-archivesBaseName = project.mod_name + "-fabric-" + project.minecraft_version
-version = project.mod_version
+}
 
 dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings loom.layered() {
         officialMojangMappings()
     }
+
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
     modImplementation "com.terraformersmc:modmenu:${project.mod_menu_version}"
@@ -29,12 +34,13 @@ processResources {
     }
 }
 
-def targetJavaVersion = 17
 tasks.withType(JavaCompile).configureEach {
-    it.options.encoding = "UTF-8"
-    if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible()) {
-        it.options.release = targetJavaVersion
-    }
+    it.options.release = 17
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
 jar {
@@ -43,16 +49,16 @@ jar {
     }
 }
 
-task setupGithubActions() {
+tasks.register('setupGithubActions') {
     doLast {
         exec {
-            commandLine "echo", "##[set-output name=version;]${project.mod_version}"
+            commandLine "sh", "-c", "echo version=${project.version} >> \$GITHUB_OUTPUT"
         }
         exec {
-            commandLine "echo", "##[set-output name=mod_name;]${project.mod_name}"
+            commandLine "sh", "-c", "echo mod_name=${project.mod_name} >> \$GITHUB_OUTPUT"
         }
         exec {
-            commandLine "echo", "##[set-output name=minecraft_version;]${project.minecraft_version}"
+            commandLine "sh", "-c", "echo minecraft_version=${project.minecraft_version} >> \$GITHUB_OUTPUT"
         }
     }
 }
